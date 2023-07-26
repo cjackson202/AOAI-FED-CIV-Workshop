@@ -7,9 +7,9 @@ This repository contains examples for creating efficient large language model pr
 The purpose of this workshop is to teach participants how to effectively utilize Prompt Egineering and Azure OpenAI Embeddings in Python.
 
 
-----
+
 ## Prompt Egineering Best Practices
---------
+
 ### Write Clear Instructions 
 1. Alter the system message to reply with a document that includes a playful comment or joke in each paragraph when responding to inquiries concerning writing assistance. This format should only be used for writing-related questions.
    
@@ -194,9 +194,7 @@ To accomplish this, the following steps should be taken:
             
             """Neil Armstrong is famous for being the first human to set foot on the Moon. This historic event took place on July 21, 1969, during the Apollo 11 mission."""
 
-----
 ## Azure OpenAI Embeddings
--------
 
 ### Installation
  
@@ -247,15 +245,11 @@ AZURE_OPENAI_KEY=your_api_key
 
 Replace your_version, your_endpoint, and your_api_key with your actual values.
 
---------
 ## License
--------- 
 
 This repository is licensed under the MIT License. See the LICENSE file for more information.
 
---------
 ## Extra Resources 
---------
 
 ### Azure OpenAI PLayground
 
