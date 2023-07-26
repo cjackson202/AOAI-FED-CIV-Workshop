@@ -1,6 +1,6 @@
 # Azure OpenAI Workshop
  
-This repository contains examples for creating efficient large language model prompts and embedding applications. Spcifically this repositiry includes: 
+This repository contains examples for creating efficient large language model prompts and embedding applications. Specifically this repository includes: 
 - 7 best practices for implementing prompt egineering in LLM applications.  
 - 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding models. 
   
@@ -21,7 +21,7 @@ The purpose of this workshop is to teach participants how to effectively utilize
 
          Write a thank you note to my steel bolt vendor for getting a delivery in on time with short notice. This made it possible for my company to deliver an important order. 
 
-2. Modify the system message by adding the prefix "Summary:" which should summarize the article given, delimited with triple quotations. Following the summary, the system should translate the article from English to Spanish and add the prefix "Translation:".
+2. Modify the system message by adding the prefix "Summary:" which should summarize the paragraph given, delimited with triple quotations. Following the summary, the system should translate the paragraph from English to Spanish and add the prefix "Translation:".
 To accomplish these tasks, the following steps should be taken:
    1. Identify the article to be summarized, which should be delimited by triple quotations.
     2.	Generate a summary of the article.
@@ -31,16 +31,17 @@ To accomplish these tasks, the following steps should be taken:
 
              SYSTEM: 
 
-            You will be given an article delimited by XML tags. Use the following step-by-step sequence to respond to user inputs. 
-            Step 1) The user will provide you with text delimited by triple quotes. Summarize the text in one sentence with a prefix “Summary:” 
+            You will be given a paragraph delimited by XML tags. Use the following step-by-step sequence to respond to user inputs.
+
+            Step 1) The user will provide you with a paragraph delimited by triple quotes. Summarize the paragraph in one sentence with a prefix “Summary:” 
             Step 2) Translate the summary from Step 1 into Spanish, with a prefix “Translation:”
 
             QUERY:
 
-            <article> Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are designed to perform tasks that normally require human intelligence, such as learning, problem-solving, and decision-making. AI technology uses algorithms and statistical models to analyze data and make predictions and can be applied to a wide range of fields, including healthcare, finance, and transportation. AI is a rapidly growing field that has the potential to revolutionize many industries by increasing efficiency and productivity. However, as with any technology, there are also concerns about the ethical implications of AI, such as job displacement and privacy concerns. </article>
+            <paragraph> Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are designed to perform tasks that normally require human intelligence, such as learning, problem-solving, and decision-making. AI technology uses algorithms and statistical models to analyze data and make predictions and can be applied to a wide range of fields, including healthcare, finance, and transportation. AI is a rapidly growing field that has the potential to revolutionize many industries by increasing efficiency and productivity. However, as with any technology, there are also concerns about the ethical implications of AI, such as job displacement and privacy concerns. </paragraph>
 
 
-3. Revise the model to classify the text it is given as either positive, neutral, negative. Once classified, have the LLM recognize the adjective it used to classify the text. Provide an example to the assitant for the LLM to comprehend tasks. 
+3. Revise the model to classify the text it is given as either positive, neutral or negative. Once classified, have the LLM recognize the adjective it used to classify the text. Provide an example to the assitant for the LLM to comprehend tasks. 
    
          SYSTEM: Classify the text as either positive, neutral, or negative. Then find the adjective that allows you to classify the text. Follow the example to respond.
 
@@ -115,7 +116,7 @@ To accomplish this, the following steps should be taken:
             
             I need to get my internet working again.
 
-*5.* Continued: Based on the classification of the customer query from above, provide a set of more specific set of instructions to the system message for troubleshooting in a technical support context. 
+(5) Continued: Based on the classification of the customer query from above, provide a set of more specific set of instructions to the system message for troubleshooting in a technical support context. 
 
       SYSTEM:
 
@@ -126,6 +127,7 @@ To accomplish this, the following steps should be taken:
       -	For MTD-327S model, advise the customer to unplug and replug the device and wait for 5 minutes before testing the connection.
       -	If the issue persists, output {"IT support requested"} to connect them to IT support.
       -	If the customer's questions are unrelated to troubleshooting, ask if they would like to end the chat and classify their request accordingly.
+      
       <insert primary/secondary classification scheme from above here>
 
       QUERY: 
