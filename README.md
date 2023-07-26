@@ -21,7 +21,7 @@ The purpose of this workshop is to teach participants how to effectively utilize
 
          Write a thank you note to my steel bolt vendor for getting a delivery in on time with short notice. This made it possible for my company to deliver an important order. 
 
-2. Modify the system message by adding the prefix "Summary:" which should summarize the paragraph given, delimited with triple quotations. Following the summary, the system should translate the paragraph from English to Spanish and add the prefix "Translation:".
+2. Modify the system message by adding the prefix "Summary:" which should summarize the paragraph given, delimited with XML tags. Following the summary, the system should translate the paragraph from English to Spanish and add the prefix "Translation:".
 To accomplish these tasks, the following steps should be taken:
    1. Identify the article to be summarized, which should be delimited by triple quotations.
     2.	Generate a summary of the article.
