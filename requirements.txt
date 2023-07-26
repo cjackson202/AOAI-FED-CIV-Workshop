@@ -1,0 +1,6 @@
+python-dotenv
+openai 
+openai[embeddings]
+pandas 
+numpy 
+streamlit
