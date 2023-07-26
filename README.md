@@ -1,4 +1,4 @@
-# Azure OpenAI Embeddings Workshop
+# Azure OpenAI Workshop
  
 This repository contains examples for creating efficient large language model prompts and embedding applications. Spcifically this repositiry includes: 
 - 7 best practices for implementing prompt egineering in LLM applications.  
