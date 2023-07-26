@@ -2,7 +2,7 @@
  
 This repository contains examples for creating efficient large language model prompts and embedding applications. Specifically this repository includes: 
 - 7 best practices for implementing prompt egineering in LLM applications.  
-- 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding models. 
+- 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
   
 The purpose of this workshop is to teach participants how to effectively utilize Prompt Egineering and Azure OpenAI Embeddings in Python.
 
@@ -127,7 +127,7 @@ To accomplish this, the following steps should be taken:
       -	For MTD-327S model, advise the customer to unplug and replug the device and wait for 5 minutes before testing the connection.
       -	If the issue persists, output {"IT support requested"} to connect them to IT support.
       -	If the customer's questions are unrelated to troubleshooting, ask if they would like to end the chat and classify their request accordingly.
-      
+
       <insert primary/secondary classification scheme from above here>
 
       QUERY: 
