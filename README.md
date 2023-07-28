@@ -6,6 +6,32 @@ This repository contains examples for creating efficient large language model pr
   
 The purpose of this workshop is to teach participants how to effectively utilize Prompt Egineering and Azure OpenAI Embeddings in Python.
 
+## Azure OpenAI Playground
+
+Important steps: 
+
+Ensure the following files are inside of a container, in the Azure storage account: 
+
+- ```Hurricane_Irene_(2005).pdf``` 
+
+ - ```New_York_State_Route_373.pdf```
+  
+
+If access needed to the files above, please visit the search_documents folder in this repo. 
+
+Example queries to execute:
+
+### ```Hurricane_Irene_(2005).pdf``` 
+
+    1. What category hurricane was Irene?
+    2. Which areas were impacted the most by hurricane Irene?
+    3. Please explain the meteorological history of the hurricane.  
+
+
+###  ```New_York_State_Route_373.pdf```
+    1. What year was the New York State Route built?
+    2. Describe the New York State Route. 
+    3. Which company designed and built the New York State Route?
 
 
 ## Prompt Egineering Best Practices
