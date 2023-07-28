@@ -1,10 +1,11 @@
 # Azure OpenAI Workshop
  
 This repository contains examples for creating efficient large language model prompts and embedding applications. Specifically this repository includes: 
+- 2 documents for LLM interactions in the Azure OpenAI Playground. 
 - 7 best practices for implementing prompt egineering in LLM applications.  
 - 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
   
-The purpose of this workshop is to teach participants how to effectively utilize Prompt Egineering and Azure OpenAI Embeddings in Python.
+The purpose of this workshop is to teach participants how to effectively utilize the Azure OpenAI Playground, Prompt Egineering and Azure OpenAI Embeddings in Python.
 
 ## Azure OpenAI Playground
 
@@ -17,7 +18,7 @@ Ensure the following files are inside of a container, in the Azure storage accou
  - ```New_York_State_Route_373.pdf```
   
 
-If access needed to the files above, please visit the search_documents folder in this repo. 
+If access needed to the files above, please visit the [search_documents](https://github.com/t-cjackson/Azure-OpenAI-Workshop/tree/main/search_documents) folder in this repository. 
 
 Example queries to execute:
 
@@ -273,10 +274,6 @@ AZURE_OPENAI_KEY=your_api_key
 
 Replace your_version, your_endpoint, and your_api_key with your actual values.
 
-## License
-
-This repository is licensed under the MIT License. See the LICENSE file for more information.
-
 ## Extra Resources 
 
 ### Azure OpenAI PLayground
@@ -299,3 +296,7 @@ This repository is licensed under the MIT License. See the LICENSE file for more
 [Getting Started with Embeddings](https://learn.microsoft.com/en-us/azure/ai-services/openai/tutorials/embeddings?tabs=command-line)
 
 [OpenAI Cookbook GitHub Repository](https://github.com/openai/openai-cookbook)
+
+## License
+
+This repository is licensed under the MIT License. See the [LICENSE](https://github.com/t-cjackson/Azure-OpenAI-Workshop/blob/main/LICENSE) file for more information.
