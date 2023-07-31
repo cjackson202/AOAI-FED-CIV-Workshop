@@ -1,11 +1,11 @@
 # Azure OpenAI Workshop
  
-This repository contains examples for creating efficient large language model prompts and embedding applications. Specifically this repository includes: 
+Welcome to this repository, a comprehensive collection of examples that will help you chat with your data using the Azure OpenAI Playground, create highly efficient large language model prompts, and build Azure OpenAI embedding applications. This repository offers a wide range of examples that can be catered to your use cases, including:
 - 2 documents for LLM interactions in the Azure OpenAI Playground. 
 - 7 best practices for implementing prompt egineering in LLM applications.  
 - 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
   
-The purpose of this workshop is to teach participants how to effectively utilize the Azure OpenAI Playground, Prompt Egineering and Azure OpenAI Embeddings in Python.
+The purpose of this workshop is to equip participants with the necessary skills to make the most out of the Azure OpenAI Playground, Prompt Engineering, and Azure OpenAI Embeddings in Python.
 
 ## Azure OpenAI Playground
 
@@ -50,11 +50,11 @@ Example queries to execute:
 
 2. Modify the system message by adding the prefix "Summary:" which should summarize the paragraph given, delimited with XML tags. Following the summary, the system should translate the paragraph from English to Spanish and add the prefix "Translation:".
 To accomplish these tasks, the following steps should be taken:
-   1. Identify the article to be summarized, which should be delimited by triple quotations.
-    2.	Generate a summary of the article.
+   1. Identify the paragraph to be summarized, which should be delimited by XML tags.
+    2.	Generate a summary of the paragraph.
     3.	Add the prefix "Summary:" to the beginning of the summary.
-    4.	Translate the article from English to Spanish.
-    5.	Add the prefix "Translation:" to the beginning of the translated article.
+    4.	Translate the paragraph from English to Spanish.
+    5.	Add the prefix "Translation:" to the beginning of the translated paragraph.
 
              SYSTEM: 
 
@@ -68,7 +68,7 @@ To accomplish these tasks, the following steps should be taken:
             <paragraph> Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are designed to perform tasks that normally require human intelligence, such as learning, problem-solving, and decision-making. AI technology uses algorithms and statistical models to analyze data and make predictions and can be applied to a wide range of fields, including healthcare, finance, and transportation. AI is a rapidly growing field that has the potential to revolutionize many industries by increasing efficiency and productivity. However, as with any technology, there are also concerns about the ethical implications of AI, such as job displacement and privacy concerns. </paragraph>
 
 
-3. Revise the model to classify the text it is given as either positive, neutral or negative. Once classified, have the LLM recognize the adjective it used to classify the text. Provide an example to the assitant for the LLM to comprehend tasks. 
+1. Revise the model to classify the text it is given as either positive, neutral or negative. Once classified, have the LLM recognize the adjective it used to classify the text. Provide an example to the assitant for the LLM to comprehend tasks. 
    
          SYSTEM: Classify the text as either positive, neutral, or negative. Then find the adjective that allows you to classify the text. Follow the example to respond.
 
@@ -227,7 +227,19 @@ To accomplish this, the following steps should be taken:
 
 ### Installation
  
-To run the Python scripts in this repository, you will need to have the necessary packages installed. You can install them by running the following command:
+To run the Python scripts in this repository, you will need to first create a virtual environment in your workspace. Next you must have the necessary packages installed. You can complete both tasks via the following commands:
+
+To create a virtual environment in your workspace:
+
+
+1. Open the command palette: ```CTRL + SHIFT + P```
+2. Search: ```Python: Create Environment```
+3. Select: ```Venv```
+4. Select the latest version of Python installed on your device.
+5. .venv environment created  
+
+To install the necessary packages:
+
 ```bash
 pip install -r requirements.txt  
  ```
@@ -261,7 +273,7 @@ This script demonstrates how to perform a search using Azure OpenAI embeddings.
  
 Located in the embeddings_demo subfolder, this script provides a complete web app demonstration of the Azure OpenAI Embeddings functionality using Streamlit. It offers an interactive GUI where users can choose to execute the functionality demonstrated in the other two scripts. It creates embeddings from a given data file and allows for search queries within the created embeddings.
 
-Note: You should adjust the file path in lines 34, 39, and 58 in full_demo.py to fit your specific file path.
+Note: You should adjust the file path in lines 42, 47, and 70 in aoai_embeddings.py to fit your specific file path.
 
 ### Configuration
  
