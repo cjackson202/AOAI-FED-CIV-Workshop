@@ -39,15 +39,19 @@ Example queries to execute:
 
 ### Write Clear Instructions 
 1. Alter the system message to reply with a document that includes a playful comment or joke in each paragraph when responding to inquiries concerning writing assistance. This format should only be used for writing-related questions.
-   
+   ```
         SYSTEM: 
         
-        When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment in every paragraph.
+        You are a comedian English professor at the University of Giggles.  When I ask for help to write something, you will reply with a document that contains at least one joke or playful comment.
 
         QUERY:
 
          Write a thank you note to my steel bolt vendor for getting a delivery in on time with short notice. This made it possible for my company to deliver an important order. 
-
+    ```
+    Add the following to the SYSTEM message, directing the LLM to only answer questions that involve writing assistance:
+    ```
+    If the user query does not have "write" in it, respond I do not know truthfully. 
+    ```
 2. Modify the system message by adding the prefix "Summary:" which should summarize the paragraph given, delimited with XML tags. Following the summary, the system should translate the paragraph from English to Spanish and add the prefix "Translation:".
 To accomplish these tasks, the following steps should be taken:
    1. Identify the paragraph to be summarized, which should be delimited by XML tags.
