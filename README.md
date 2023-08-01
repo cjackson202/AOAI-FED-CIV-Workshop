@@ -4,7 +4,7 @@ Welcome to this repository, a comprehensive collection of examples that will hel
 - 2 documents for LLM interactions in the Azure OpenAI Playground. 
 - 7 best practices for implementing prompt egineering in LLM applications.  
 - 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
-- 43 in-depth content slides on the information covered in this workshop. Please find ```aoai_workshp_content.pdf``` in [search_documents](https://github.com/t-cjackson/Azure-OpenAI-Workshop/tree/main/search_documents) folder in this repository. 
+- 43 in-depth content slides on the information covered in this workshop. Please find ```aoai_workshop_content.pdf``` in [search_documents](https://github.com/t-cjackson/Azure-OpenAI-Workshop/tree/main/search_documents) folder in this repository. 
   
 The purpose of this workshop is to equip participants with the necessary skills to make the most out of the Azure OpenAI Playground, Prompt Engineering, and Azure OpenAI Embeddings in Python.
 
