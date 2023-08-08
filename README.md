@@ -3,8 +3,8 @@
 Welcome to this repository, a comprehensive collection of examples that will help you chat with your data using the Azure OpenAI Playground, create highly efficient large language model prompts, and build Azure OpenAI embedding applications. This repository offers a wide range of examples that can be catered to your use cases, including:
 - 2 documents for LLM interactions in the Azure OpenAI Playground. 
 - 7 best practices for implementing prompt egineering in LLM applications.  
-- 3 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
-- 43 in-depth content slides on the information covered in this workshop. Please find ```aoai_workshop_content.pdf``` in [search_documents](https://github.com/t-cjackson/Azure-OpenAI-Workshop/tree/main/search_documents) folder in this repository. 
+- 4 Python scripts that demonstrate how to use Azure OpenAI Embeddings to create embedding applications. 
+- 42 in-depth content slides on the information covered in this workshop. Please find ```aoai_workshop_content.pdf``` in [search_documents](https://github.com/t-cjackson/Azure-OpenAI-Workshop/tree/main/search_documents) folder in this repository. 
   
 The purpose of this workshop is to equip participants with the necessary skills to make the most out of the Azure OpenAI Playground, Prompt Engineering, and Azure OpenAI Embeddings in Python.
 
@@ -49,7 +49,7 @@ Example queries to execute:
 
          Write a thank you note to my steel bolt vendor for getting a delivery in on time with short notice. This made it possible for my company to deliver an important order. 
     ```
-    Add the following to the SYSTEM message, directing the LLM to only answer questions that involve writing assistance:
+    Note: Add the following to the SYSTEM message, directing the LLM to only answer questions that involve writing assistance:
     ```
     If the user query does not have "write" in it, respond I do not know truthfully. 
     ```
@@ -65,13 +65,14 @@ To accomplish these tasks, the following steps should be taken:
 
             You will be given a paragraph delimited by XML tags. Use the following step-by-step sequence to respond to user inputs.
 
-            Step 1) The user will provide you with a paragraph delimited by triple quotes. Summarize the paragraph in one sentence with a prefix “Summary:” 
+            Step 1) The user will provide you with a paragraph delimited by XML tags. Summarize the paragraph in one sentence with a prefix “Summary:” 
             Step 2) Translate the summary from Step 1 into Spanish, with a prefix “Translation:”
 
             QUERY:
 
             <paragraph> Artificial intelligence (AI) refers to the simulation of human intelligence in machines that are designed to perform tasks that normally require human intelligence, such as learning, problem-solving, and decision-making. AI technology uses algorithms and statistical models to analyze data and make predictions and can be applied to a wide range of fields, including healthcare, finance, and transportation. AI is a rapidly growing field that has the potential to revolutionize many industries by increasing efficiency and productivity. However, as with any technology, there are also concerns about the ethical implications of AI, such as job displacement and privacy concerns. </paragraph>
 
+    Note: When implementing the above example, you might encounter a problem in Step 2 of the prompt where the model translates the entire paragraph instead of the single sentence summary. This issue is likely to arise when using the gpt-35-turbo model, primarily due to its limitations in reasoning capabilities, which impact its translation proficiency. A solution to this minor glitch is the gpt-4 model, which is designed to reason more effectively than the gpt-35-turbo model.
 
 1. Revise the model to classify the text it is given as either positive, neutral or negative. Once classified, have the LLM recognize the adjective it used to classify the text. Provide an example to the assitant for the LLM to comprehend tasks. 
    
@@ -257,13 +258,14 @@ A pre-chunked .csv file ```microsoft-earnings.csv``` is provided in this reposit
 
 ### Usage
  
-This repository contains three Python scripts: ``` workshop_embedding.py```, ```workshop_search.py```, and ``` aoai_embeddings.py```.
+This repository contains four Python scripts: ``` workshop_embedding.py```, ```workshop_search.py```, ``` aoai_embeddings.py```, and ```acs_embeddings.py```.
 
 To run any of these scripts, navigate to the repository root and execute one of the following commands:
 ```bash
 python workshop_embedding.py  
 python workshop_search.py  
 cd embedding_demos -> streamlit run aoai_embeddings.py
+cd embedding_demos -> streamlit run acs_embeddings.py
  ```
 
 ### workshop_embedding.py
@@ -280,13 +282,20 @@ Located in the embeddings_demo subfolder, this script provides a complete web ap
 
 Note: You should adjust the file path in lines 42, 47, and 70 in aoai_embeddings.py to fit your specific file path.
 
+### acs_embeddings.py
+
+Located in the embeddings_demo subfolder, this script provides a complete web app demonstration of the Azure OpenAI Embeddings functionality along with Azure Cognitive Search using Streamlit. It creates embeddings from relevant documents found in your Azure Cognitive Search index. Documents in your index only related to the query asked will be embedded and stored. The vector storage only saves embedded documents for the duration of the program's execution. Must use Azure Cognitive Search Query API Key in .env file. 
+
 ### Configuration
  
 To use Azure OpenAI, you need to configure the necessary environment variables. Create a .env file in the repository root directory and set the following variables:
 ```dotenv
-AZURE_OPENAI_VERSION=your_version  
-AZURE_OPENAI_ENDPOINT=your_endpoint  
-AZURE_OPENAI_KEY=your_api_key  
+AZURE_OPENAI_VERSION = your_version  
+AZURE_OPENAI_ENDPOINT = your_endpoint  
+AZURE_OPENAI_KEY = your_api_key 
+AZURE_COGNITIVE_SEARCH_SERVICE_NAME = your_cognitive_search_service_name 
+AZURE_COGNITIVE_SEARCH_INDEX_NAME = your_cognitive_search_index_name 
+AZURE_COGNITIVE_SEARCH_API_KEY = your_cognitive_search_api_query_key
 ```
 
 Replace your_version, your_endpoint, and your_api_key with your actual values.

@@ -17,15 +17,6 @@ openai.api_version = os.environ['AZURE_OPENAI_VERSION']
 openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
 openai.api_key = os.environ['AZURE_OPENAI_KEY']
 
-# Streamlit config
-st.title("Demo-Azure OpenAI Embeddings")
-image = Image.open('image_logo2.png')
-st.image(image, caption = '')
-st.sidebar.title('Chat Bot Type Selection')
-chat_style = st.sidebar.selectbox(
-    'Choose between Embeddings Bot or Search Bot', ['Embeddings Bot','Search Bot']
-)
-
 def embedding_create():
     # acquire the filename to be embed
     st.subheader("Vector Creation")
@@ -49,6 +40,7 @@ def embedding_create():
         st.subheader("Post Embedding")
         st.success('Embeddings Created Sucessfully!!')
         st.write(df)
+
 
 def embeddings_search():
 
@@ -92,8 +84,19 @@ def embeddings_search():
                 st.write('Score: ', st.session_state.score[i])
 
 
+def main():
+    # Streamlit config
+    st.title("Demo-Azure OpenAI Embeddings")
+    image = Image.open('image_logo2.png')
+    st.image(image, caption = '')
+    st.sidebar.title('Chat Bot Type Selection')
+    chat_style = st.sidebar.selectbox(
+        'Choose between Embeddings Bot or Search Bot', ['Embeddings Bot','Search Bot']
+    )
+    if chat_style == 'Embeddings Bot':
+        embedding_create()
+    elif chat_style == 'Search Bot':
+        embeddings_search()
 
-if chat_style == 'Embeddings Bot':
-    embedding_create()
-elif chat_style == 'Search Bot':
-    embeddings_search()
+if __name__ == '__main__':
+    main()
