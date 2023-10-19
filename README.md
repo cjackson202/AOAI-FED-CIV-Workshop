@@ -284,21 +284,23 @@ Note: You should adjust the file path in lines 42, 47, and 70 in aoai_embeddings
 
 ### acs_embeddings.py
 
-Located in the embeddings_demo subfolder, this script provides a complete web app demonstration of the Azure OpenAI Embeddings functionality along with Azure Cognitive Search using Streamlit. It creates embeddings from relevant documents found in your Azure Cognitive Search index. Documents in your index only related to the query asked will be embedded and stored. The vector storage only saves embedded documents for the duration of the program's execution. Must use Azure Cognitive Search Query API Key in .env file. 
+Located in the embeddings_demo subfolder, this script provides a complete web app demonstration of the Azure OpenAI Embeddings functionality along with Azure Cognitive Search and Langchain(0.0.317) using Streamlit. It creates embeddings from relevant documents found in your Azure Cognitive Search index. Documents in your index only related to the query asked will be embedded and stored. The vector storage only saves embedded documents for the duration of the program's execution. Must use Azure Cognitive Search Query API Key in .env file. 
 
 ### Configuration
  
 To use Azure OpenAI, you need to configure the necessary environment variables. Create a .env file in the repository root directory and set the following variables:
 ```dotenv
 AZURE_OPENAI_VERSION = your_version  
-AZURE_OPENAI_ENDPOINT = your_endpoint  
+AZURE_OPENAI_BASE = your_base 
 AZURE_OPENAI_KEY = your_api_key 
+AZURE_GPT_DEPLOYMENT = your_gpt_deployment
+AZURE_EMBEDDINGS_DEPLOYMENT = your_embeddings_deployment
 AZURE_COGNITIVE_SEARCH_SERVICE_NAME = your_cognitive_search_service_name 
 AZURE_COGNITIVE_SEARCH_INDEX_NAME = your_cognitive_search_index_name 
 AZURE_COGNITIVE_SEARCH_API_KEY = your_cognitive_search_api_query_key
 ```
 
-Replace your_version, your_endpoint, and your_api_key with your actual values.
+Replace all values with your Azure identities (eg. your_version).
 
 ## Extra Resources 
 

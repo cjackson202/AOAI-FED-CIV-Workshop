@@ -15,8 +15,7 @@ def config_keys():
     # set api keys for AOAI and Azure Search
     os.environ['OPENAI_API_VERSION'] = os.getenv('AZURE_OPENAI_VERSION')
     os.environ['OPENAI_API_KEY'] = os.getenv('AZURE_OPENAI_KEY')
-    os.environ['OPENAI_API_BASE'] = os.getenv('AZURE_OPENAI_ENDPOINT') 
-    os.environ['OPENAI_EMBEDDING_DEPLOYMENT_NAME'] = os.getenv('AZURE_OPENAI_EMBEDDING_DEPLOYMENT_NAME')
+    os.environ['OPENAI_API_BASE'] = os.getenv('AZURE_OPENAI_BASE') 
     os.environ['AZURE_COGNITIVE_SEARCH_SERVICE_NAME'] = os.getenv('AZURE_COGNITIVE_SEARCH_SERVICE_NAME')
     os.environ['AZURE_COGNITIVE_SEARCH_API_KEY'] = os.getenv('AZURE_COGNITIVE_SEARCH_API_KEY')
     os.environ['AZURE_COGNITIVE_SEARCH_INDEX_NAME'] = os.getenv('AZURE_COGNITIVE_SEARCH_INDEX_NAME')
@@ -37,14 +36,13 @@ def main():
 
     # create your LLM and embeddings. Will be conifuring 'azure' in the openai_api_type parameter.
     llm = AzureChatOpenAI(  
-                                deployment_name = "gpt-35-turbo",  
+                                deployment_name = os.getenv('AZURE_GPT_DEPLOYMENT'),  
                                 openai_api_type = "azure",  
-                                model = "gpt-35-turbo",  
                                 temperature=0.7, 
                                 max_tokens=200
                                 ) 
 
-    embeddings = OpenAIEmbeddings(chunk_size=1, openai_api_type="azure") 
+    embeddings = OpenAIEmbeddings(chunk_size=1, openai_api_type="azure", deployment=os.getenv('AZURE_EMBEDDINGS_DEPLOYMENT')) 
 
     # ask for the user query 
     query = st.text_input("Enter a search query: ", key='search_term', placeholder="")
@@ -59,11 +57,13 @@ def main():
         # get the relevant document from Azure Cognitive Search that are only relevant to the query being asked
         docs = retriever.get_relevant_documents(query)
 
+        print(docs)
+
         # create embedding from the document retrieved and place in a FAISS vector database
         db = FAISS.from_documents(documents=docs, embedding=embeddings)
 
         # set up the chain that will feed the retrieved document to the LLM
-        chain = RetrievalQA.from_chain_type(llm=llm, retriever = db.as_retriever(), chain_type="stuff")
+        chain = RetrievalQA.from_chain_type(llm=llm, retriever = db.as_retriever(), chain_type="stuff", verbose=True)
 
         # run the chain on the query asked
         response = chain.run(query)
